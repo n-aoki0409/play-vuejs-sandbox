@@ -5,4 +5,7 @@ project/project
 project/target
 public
 target
+docker/.cache
+docker/.ivy2
+docker/.sbt
 RUNNING_PID

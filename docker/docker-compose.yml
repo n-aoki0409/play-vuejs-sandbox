@@ -1,0 +1,17 @@
+version: "3"
+services:
+  play:
+    build: ./sbt
+    container_name: play-vue
+    volumes:
+      - ..:/app
+      - ./.ivy2:/root/.ivy2
+      - ./.cache:/root/.cache
+      - ./.sbt:/root/.sbt
+    ports:
+      - 9000:9000
+    command: run
+
+networks:
+  default:
+    driver: bridge
