@@ -8,9 +8,17 @@ services:
       - ./.ivy2:/root/.ivy2
       - ./.cache:/root/.cache
       - ./.sbt:/root/.sbt
-    ports:
-      - 9000:9000
     command: run
+
+  nginx:
+    build: ./nginx
+    container_name: play-vue-nginx
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/nginx.conf
+    ports:
+      - 18080:80
+    depends_on:
+      - play
 
 networks:
   default:
